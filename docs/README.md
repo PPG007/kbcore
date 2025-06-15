@@ -19,3 +19,11 @@ highlights:
     highlights:
       - title: 此文档内容可能出现部分笔误，欢迎提出 Issue。
 ---
+
+# Redirect
+
+<Redirect to="/demo/" />
+
+<script setup>
+import { Redirect } from '@components';
+</script>
