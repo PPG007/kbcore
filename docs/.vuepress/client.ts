@@ -2,7 +2,7 @@ import 'element-plus/theme-chalk/dark/css-vars.css';
 import 'vanilla-jsoneditor/themes/jse-theme-dark.css';
 import { defineClientConfig } from 'vuepress/client';
 import { useDarkMode } from 'vuepress-theme-hope/client';
-import { onMounted, watch, ref } from 'vue';
+import { onMounted, watch } from 'vue';
 import { useHtmlClassWatcher } from './scripts';
 import { colors } from './styles';
 
@@ -28,11 +28,11 @@ const getColor = (classList: Array<string>): string => {
     return colors[index];
   }
   return colors[0];
-}
+};
 
 export default defineClientConfig({
   setup() {
-    let changeThemeFn = (color?: string): void => {}
+    let changeThemeFn = (color?: string): void => {};
     const { isDarkMode } = useDarkMode();
     const htmlClassList = useHtmlClassWatcher();
     watch(isDarkMode, () => {
@@ -40,7 +40,7 @@ export default defineClientConfig({
     });
     watch(htmlClassList, (newVal) => {
       changeThemeFn(getColor(newVal));
-    })
+    });
     onMounted(async () => {
       const { useElementPlusTheme } = await import('use-element-plus-theme');
       const { changeTheme } = useElementPlusTheme();
